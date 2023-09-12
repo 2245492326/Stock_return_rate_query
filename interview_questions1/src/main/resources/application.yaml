@@ -8,15 +8,3 @@ spring:
     password: 7fbfy2Xrt5z78bPh
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-
-# 配置mybatis-plus
-mybatis-plus:
-  configuration:
-    # 配置MyBatis自带日志
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  #mybatis-plus的全局配置
-  global-config:
-    banner: off
-    #注意: mybatis-plus中字段映射是默认开启的(user_name=userName)
-  # 配置类型别名所对应的包
-  type-aliases-package: com.example.pojo

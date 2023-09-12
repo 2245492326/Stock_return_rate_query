@@ -1,8 +1,6 @@
 # interview_questions
 数据库采用MySQL，部署在云服务器中，可以直接访问
 
-数据库账号： interview，密码：7fbfy2Xrt5z78bPh
-
 
 
 两个项目端口号均为：8081

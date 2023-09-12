@@ -19,4 +19,4 @@
 
 技术使用：Mybatis3，MybatisPlus，SpringBoot3，java17，alibaba.druid数据源
 
-![img](.\img.png)
+![img](https://i.postimg.cc/BnPwDbNq/image.png)

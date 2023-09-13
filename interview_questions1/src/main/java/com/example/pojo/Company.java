@@ -36,6 +36,15 @@ public class Company implements Serializable {
     public Company() {
     }
 
+    public Company(Long orgUniCode, String orgChiName, String induSmaPar, String orgDele, Object regCap, LocalDate orgEstDate) {
+        this.orgUniCode = orgUniCode;
+        this.orgChiName = orgChiName;
+        this.induSmaPar = induSmaPar;
+        this.orgDele = orgDele;
+        this.regCap = regCap;
+        this.orgEstDate = orgEstDate;
+    }
+
     public Long getOrgUniCode() {
         return orgUniCode;
     }

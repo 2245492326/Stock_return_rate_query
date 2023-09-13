@@ -1,16 +1,13 @@
 package com.example.controller;
 
-import com.example.controller.tool.Code;
 import com.example.controller.tool.Result;
 import com.example.controller.tool.Status;
 import com.example.pojo.Company;
 import com.example.service.CompanyService;
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Book;
 import java.util.List;
 
 @Controller
@@ -22,7 +19,9 @@ public class CompanyController {
 
     @GetMapping()
     public Result getBookById() {
+        //调用companyService方法执行业务逻辑
         List<Company> companyAll = companyService.getCompanyAll();
+        //编写输出信息
         Integer status = companyAll != null ? Status.OPERATION_SUCCESS : Status.OPERATION_FAILURE;
         String msg = companyAll != null ? "查询成功" : "查询失败, 请重试";
         return new Result(status, companyAll, msg);

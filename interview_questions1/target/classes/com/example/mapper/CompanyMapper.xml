@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.CompanyMapper">
+
+
+    <insert id="addCompany" keyColumn="orgUniCode" keyProperty="orgUniCode">
+        insert into company values(#{orgUniCode}, #{orgChiName}, #{induSmaPar}, #{orgDele}, #{regCap}, #{orgEstDate})
+    </insert>
+
+
+    <select id="getCompanyById" resultType="com.example.pojo.Company">
+        select orgUniCode,orgChiName,induSmaPar,orgDele,regCap,orgEstDate from company where orgUniCode = #{comId};
+    </select>
+
+    <update id="updateCompanyById" >
+        <bind name="c" value="company"/>
+        UPDATE company
+        <set>
+            <if test="company.orgUniCode !=null and company.orgUniCode !=''">
+                orgUniCode = #{company.orgUniCode},
+            </if>
+            <if test="company.orgChiName != null and company.orgChiName !=''">
+                orgChiName = #{company.orgChiName},
+            </if>
+            <if test="company.induSmaPar != null and company.induSmaPar !=''">
+                induSmaPar = #{company.induSmaPar},
+            </if>
+            <if test="company.orgDele != null and company.orgDele !=''">
+                orgDele = #{company.orgDele},
+            </if>
+            <if test="company.regCap != null and company.regCap !=''">
+                regCap = #{company.regCap},
+            </if>
+            <if test="company.orgEstDate != null and company.orgEstDate !=''">
+                orgEstDate = #{company.orgEstDate},
+            </if>
+        </set>
+        WHERE orgUniCode = #{comId}
+    </update>
+
+</mapper>

@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.enums.SortingMethodEnum;
 import com.example.mapper.FinalDataMapper;
 import com.example.pojo.FinalData;
+import com.example.service.FinalDataService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,12 +16,13 @@ import java.util.List;
 @SpringBootTest
 class InterviewQuestions2ApplicationTests {
     @Autowired
-    FinalDataMapper finalDataMapper;
+    private FinalDataMapper finalDataMapper;
 
-
+    @Autowired
+    private FinalDataService finalDataService;
 
     @Test
-    void testSelectPage(){
+    void SelectPageTest(){
         Page<FinalData>page = new Page<>(2,4);//当前页和每页条数
         String sortField = "Net_Value_Per_Unit";
         String sortDirection = String.valueOf(SortingMethodEnum.ASC);
@@ -43,5 +45,11 @@ class InterviewQuestions2ApplicationTests {
         System.out.println("总页数："+page.getPages());
         System.out.println("是否有上一页："+page.hasPrevious());
         System.out.println("是否有下一页："+page.hasNext());
+    }
+
+    @Test
+    void PaginationSortTest(){
+        Page<FinalData> page = finalDataService.PaginationSort(2, 4, "Net_Value_Per_Unit", SortingMethodEnum.ASC);
+        System.out.println(page);
     }
 }

@@ -157,7 +157,7 @@ public class FundNetValServiceImpl extends ServiceImpl<FundNetValMapper, FundNet
             }
         };
 
-        if (pagingParameters.getSortDirection().equals("asc")){
+        if (pagingParameters.getSortDirection().equalsIgnoreCase("asc")){
             //执行升序排序
             finalDataList.sort(Comparator.comparing(getProperty));
         }else {

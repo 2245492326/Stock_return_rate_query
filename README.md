@@ -13,10 +13,8 @@
 
 面试题2
 
-数据处理方面，首先通过SQL查询的信息编辑为视图（详细看数据库视图的构建语句）
-
-然后java后台直接查询该视图获取数据，再采用MybatisPlus分页插件进行分页处理
+数据处理结合java和SQL进行操作, 优化到2秒左右查询出数据
 
 技术使用：Mybatis3，MybatisPlus，SpringBoot3，java17，alibaba.druid数据源
 
-![img](https://i.postimg.cc/BnPwDbNq/image.png)
+![img](https://img1.imgtp.com/2023/09/16/LIvFNneW.png)

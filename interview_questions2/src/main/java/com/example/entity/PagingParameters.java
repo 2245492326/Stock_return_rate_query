@@ -1,4 +1,4 @@
-package com.example.pojo;
+package com.example.entity;
 
 public class PagingParameters {
     private Integer pageNum;

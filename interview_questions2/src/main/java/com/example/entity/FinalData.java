@@ -1,16 +1,12 @@
-package com.example.pojo;
-
-import com.baomidou.mybatisplus.annotation.TableName;
-import org.apache.ibatis.annotations.One;
+package com.example.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * @author cgs
  * @since 2023-09-11
  */
-@TableName(value ="Final_data")
 public class FinalData implements Serializable {
     /**
      * 基金代码
@@ -25,54 +21,61 @@ public class FinalData implements Serializable {
     /**
      * 统计日期
      */
-    private Date DateStatistics;
+    private LocalDate dateStatistics;
 
     /**
      * 单位净值
      */
-    private Double NetValuePerUnit;
+    private Double netValuePerUnit;
 
     /**
      * 近一种
      */
-    private String NearlyOneWeek;
+    private String nearlyOneWeek;
 
     /**
      * 近一月
      */
-    private String NearlyOneMonth;
+    private String nearlyOneMonth;
 
     /**
      * 近三月
      */
-    private String NearlyThreeMonth;
+    private String nearlyThreeMonth;
 
     /**
      * 近一年
      */
-    private String NearlyOneYear;
+    private String nearlyOneYear;
 
     /**
      * 近两年
      */
-    private String NearlyTwoYear;
+    private String nearlyTwoYear;
 
     /**
      * 近三年
      */
-    private String NearlyThreeYear;
+    private String nearlyThreeYear;
 
     /**
      * 今年来
      */
-    private String ForNearlyOneYear;
+    private String forNearlyOneYear;
 
     /**
      * 成立来
      */
-    private String SinceItsEstablishment;
+    private String sinceItsEstablishment;
 
     public FinalData() {
+    }
+
+    public FinalData(FundNetVal fundNetVal) {
+        this.fundCode = fundNetVal.getFundCode();
+        this.fundShortName = fundNetVal.getFundShortName();
+        this.dateStatistics = fundNetVal.getEndDate();
+        this.netValuePerUnit = fundNetVal.getUnitNetVal();
     }
 
     public Integer getFundCode() {
@@ -91,84 +94,84 @@ public class FinalData implements Serializable {
         this.fundShortName = fundShortName;
     }
 
-    public Date getDateStatistics() {
-        return DateStatistics;
+    public LocalDate getDateStatistics() {
+        return dateStatistics;
     }
 
-    public void setDateStatistics(Date dateStatistics) {
-        DateStatistics = dateStatistics;
+    public void setDateStatistics(LocalDate dateStatistics) {
+        this.dateStatistics = dateStatistics;
     }
 
     public Double getNetValuePerUnit() {
-        return NetValuePerUnit;
+        return netValuePerUnit;
     }
 
     public void setNetValuePerUnit(Double netValuePerUnit) {
-        NetValuePerUnit = netValuePerUnit;
+        this.netValuePerUnit = netValuePerUnit;
     }
 
     public String getNearlyOneWeek() {
-        return NearlyOneWeek;
+        return nearlyOneWeek;
     }
 
     public void setNearlyOneWeek(String nearlyOneWeek) {
-        NearlyOneWeek = nearlyOneWeek;
+        this.nearlyOneWeek = nearlyOneWeek;
     }
 
     public String getNearlyOneMonth() {
-        return NearlyOneMonth;
+        return nearlyOneMonth;
     }
 
     public void setNearlyOneMonth(String nearlyOneMonth) {
-        NearlyOneMonth = nearlyOneMonth;
+        this.nearlyOneMonth = nearlyOneMonth;
     }
 
     public String getNearlyThreeMonth() {
-        return NearlyThreeMonth;
+        return nearlyThreeMonth;
     }
 
     public void setNearlyThreeMonth(String nearlyThreeMonth) {
-        NearlyThreeMonth = nearlyThreeMonth;
+        this.nearlyThreeMonth = nearlyThreeMonth;
     }
 
     public String getNearlyOneYear() {
-        return NearlyOneYear;
+        return nearlyOneYear;
     }
 
     public void setNearlyOneYear(String nearlyOneYear) {
-        NearlyOneYear = nearlyOneYear;
+        this.nearlyOneYear = nearlyOneYear;
     }
 
     public String getNearlyTwoYear() {
-        return NearlyTwoYear;
+        return nearlyTwoYear;
     }
 
     public void setNearlyTwoYear(String nearlyTwoYear) {
-        NearlyTwoYear = nearlyTwoYear;
+        this.nearlyTwoYear = nearlyTwoYear;
     }
 
     public String getNearlyThreeYear() {
-        return NearlyThreeYear;
+        return nearlyThreeYear;
     }
 
     public void setNearlyThreeYear(String nearlyThreeYear) {
-        NearlyThreeYear = nearlyThreeYear;
+        this.nearlyThreeYear = nearlyThreeYear;
     }
 
     public String getForNearlyOneYear() {
-        return ForNearlyOneYear;
+        return forNearlyOneYear;
     }
 
     public void setForNearlyOneYear(String forNearlyOneYear) {
-        ForNearlyOneYear = forNearlyOneYear;
+        this.forNearlyOneYear = forNearlyOneYear;
     }
 
     public String getSinceItsEstablishment() {
-        return SinceItsEstablishment;
+        return sinceItsEstablishment;
     }
 
     public void setSinceItsEstablishment(String sinceItsEstablishment) {
-        SinceItsEstablishment = sinceItsEstablishment;
+        this.sinceItsEstablishment = sinceItsEstablishment;
     }
 
     @Override
@@ -176,16 +179,16 @@ public class FinalData implements Serializable {
         return "FinalData{" +
                 "fundCode=" + fundCode +
                 ", fundShortName='" + fundShortName + '\'' +
-                ", DateStatistics=" + DateStatistics +
-                ", NetValuePerUnit=" + NetValuePerUnit +
-                ", NearlyOneWeek='" + NearlyOneWeek + '\'' +
-                ", NearlyOneMonth='" + NearlyOneMonth + '\'' +
-                ", NearlyThreeMonth='" + NearlyThreeMonth + '\'' +
-                ", NearlyOneYear='" + NearlyOneYear + '\'' +
-                ", NearlyTwoYear='" + NearlyTwoYear + '\'' +
-                ", NearlyThreeYear='" + NearlyThreeYear + '\'' +
-                ", ForNearlyOneYear='" + ForNearlyOneYear + '\'' +
-                ", SinceItsEstablishment='" + SinceItsEstablishment + '\'' +
+                ", DateStatistics=" + dateStatistics +
+                ", NetValuePerUnit=" + netValuePerUnit +
+                ", NearlyOneWeek='" + nearlyOneWeek + '\'' +
+                ", NearlyOneMonth='" + nearlyOneMonth + '\'' +
+                ", NearlyThreeMonth='" + nearlyThreeMonth + '\'' +
+                ", NearlyOneYear='" + nearlyOneYear + '\'' +
+                ", NearlyTwoYear='" + nearlyTwoYear + '\'' +
+                ", NearlyThreeYear='" + nearlyThreeYear + '\'' +
+                ", ForNearlyOneYear='" + forNearlyOneYear + '\'' +
+                ", SinceItsEstablishment='" + sinceItsEstablishment + '\'' +
                 '}';
     }
 }

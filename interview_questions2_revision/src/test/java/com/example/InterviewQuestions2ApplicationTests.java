@@ -28,10 +28,34 @@ class InterviewQuestions2ApplicationTests {
     @Autowired
     private IFundNetValService fundNetValService;
 
+    @Autowired
+    private List<FinalData> finalDataList;
+
     @Test
     void allTest(){
-        List<FundNetVal> FundNetValList = fundNetValMapper.selectList(null);
+        int pageNum = 2;
+        int pageSize = 5;
+        List<String> StringList = new ArrayList<>();
+        StringList.add("1");
+        StringList.add("2");
+        StringList.add("3");
+        StringList.add("4");
+        StringList.add("5");
+        StringList.add("6");
+        StringList.add("7");
+        StringList.add("8");
+        StringList.add("9");
 
+        // 计算起始索引和结束索引
+        int startIndex = (pageNum - 1) * pageSize;
+        int endIndex = Math.min(startIndex + pageSize, StringList.size());
+
+        // 获取指定范围内的数据
+        if (startIndex < endIndex) {
+            System.out.println(StringList.subList(startIndex, endIndex));
+        } else {
+            System.out.println(new ArrayList<>());
+        }
     }
 
 
@@ -52,7 +76,6 @@ class InterviewQuestions2ApplicationTests {
                         .orderByDesc("END_DATE")
                         .last("LIMIT 1");
                 List<Object> list = fundNetValMapper.selectObjs(queryWrapper);
-                System.out.println(list);
                 if (!list.isEmpty()){
                     return calculate(finalData.getNetValuePerUnit(),(double) list.get(0));
                 }
@@ -62,19 +85,14 @@ class InterviewQuestions2ApplicationTests {
                 double number = (current - nav) * 100 / nav;
                 return Double.parseDouble(new DecimalFormat("#.00").format(number))+"%";
             }
-
         }
 
-        // 创建分页对象
-        Page<FundNetVal>page = new Page<>(pageNum,pageSize);//当前页和每页条数
         //编写查询条件
         QueryWrapper<FundNetVal> queryWrapper = Wrappers.<FundNetVal>query()
                 .select("FUND_CODE", "FUND_SHORT_NAME", "MAX(END_DATE) AS END_DATE", "UNIT_NET_VAL")
                 .groupBy("FUND_CODE");
-        //查询数据
-        Page<FundNetVal> fundNetValPage = fundNetValMapper.selectPage(page, queryWrapper);
-        //获取当前页数据
-        List<FundNetVal> fundNetValsList = fundNetValPage.getRecords();
+        List<FundNetVal> fundNetValsList = fundNetValMapper.selectList(queryWrapper);
+
         //定义FinalData集合
         List<FinalData> finalDataList = new ArrayList<>();
 
@@ -127,26 +145,7 @@ class InterviewQuestions2ApplicationTests {
             finalDataList.add(finalData);
         }
 
-        //排序
-        // 动态指定getProperty方法
-        Function<FinalData, Comparable> getProperty = finalData -> {
-            try {
-                // 使用反射根据属性名动态获取对应的get方法，并调用它获取属性值
-                Method method = finalData.getClass().getMethod("get" + sortField);
-                return (Comparable) method.invoke(finalData);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        };
-        if (sortDirection == "asc"){
-            finalDataList.sort(Comparator.comparing(getProperty));
-        }else {
-            finalDataList.sort(Comparator.comparing(getProperty).reversed());
-        }
-        for (FinalData data : finalDataList) {
-            System.out.println(data);
-        }
+
     }
 
     @Test

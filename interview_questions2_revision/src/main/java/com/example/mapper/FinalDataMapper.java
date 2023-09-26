@@ -1,7 +1,6 @@
 package com.example.mapper;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.example.entity.FundNetVal;
+import com.example.entity.FinalData;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 import java.util.List;
@@ -14,5 +13,5 @@ import java.util.List;
  * @author cgs
  * @since 2023-09-14
  */
-public interface FundNetValMapper extends BaseMapper<FundNetVal> {
+public interface FinalDataMapper extends BaseMapper<FinalData> {
 }

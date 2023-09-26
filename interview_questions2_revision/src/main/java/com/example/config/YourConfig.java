@@ -7,6 +7,10 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.concurrent.Executor;
 
+/**
+ * 开启定时任务线程
+ * @author Administrator
+ */
 @Configuration
 @EnableScheduling
 public class YourConfig {

@@ -1,10 +1,9 @@
 package com.example.service.impl;
 
 import com.example.entity.FinalData;
-import com.example.entity.FundNetVal;
 import com.example.entity.PagingParameters;
-import com.example.mapper.FundNetValMapper;
-import com.example.service.IFundNetValService;
+import com.example.mapper.FinalDataMapper;
+import com.example.service.IFinalDataService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 import java.lang.reflect.Method;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 import java.util.function.Function;
 
 import static com.example.utils.PageUtil.getPage;
@@ -26,13 +24,13 @@ import static com.example.utils.PageUtil.getPage;
  * @since 2023-09-14
  */
 @Service
-public class FundNetValServiceImpl extends ServiceImpl<FundNetValMapper, FundNetVal> implements IFundNetValService {
+public class FinalDataServiceImpl extends ServiceImpl<FinalDataMapper, FinalData> implements IFinalDataService {
 
     @Autowired
     private List<FinalData> finalDataList;
 
     @Override
-    public List<FinalData> PaginationSort(PagingParameters pagingParameters) {
+    public List<FinalData> paginationSort(PagingParameters pagingParameters) {
         String MethodName = "";
         //排序
         if(pagingParameters.getSortField().isEmpty()) {
@@ -54,7 +52,7 @@ public class FundNetValServiceImpl extends ServiceImpl<FundNetValMapper, FundNet
             };
 
 
-        if (Objects.equals(pagingParameters.getSortDirection(), "asc")){
+        if ("asc".equals(pagingParameters.getSortDirection())){
             finalDataList.sort(Comparator.comparing(getProperty));
         }else {
             finalDataList.sort(Comparator.comparing(getProperty).reversed());

@@ -5,6 +5,10 @@ import com.example.entity.FinalData;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 分割集合
+ * @author Administrator
+ */
 public class PageUtil {
     public static List<FinalData> getPage(List<FinalData> finalDataList, int pageNum, int pageSize) {
         // 计算起始索引和结束索引

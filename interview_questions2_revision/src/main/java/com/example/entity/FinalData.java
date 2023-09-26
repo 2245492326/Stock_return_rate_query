@@ -1,5 +1,7 @@
 package com.example.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -7,6 +9,7 @@ import java.time.LocalDate;
  * @author cgs
  * @since 2023-09-11
  */
+@TableName("Final_data")
 public class FinalData implements Serializable {
     /**
      * 基金代码
@@ -69,13 +72,6 @@ public class FinalData implements Serializable {
     private String sinceItsEstablishment;
 
     public FinalData() {
-    }
-
-    public FinalData(FundNetVal fundNetVal) {
-        this.fundCode = fundNetVal.getFundCode();
-        this.fundShortName = fundNetVal.getFundShortName();
-        this.dateStatistics = fundNetVal.getEndDate();
-        this.netValuePerUnit = fundNetVal.getUnitNetVal();
     }
 
     public Integer getFundCode() {

@@ -5,13 +5,12 @@ import com.example.controller.tool.Status;
 import com.example.entity.FinalData;
 import com.example.entity.PagingParameters;
 import com.example.service.IFundNetValService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * <p>
@@ -24,14 +23,15 @@ import java.util.List;
 @Controller
 @RestController
 public class FundNetValController {
-    @Autowired
-    private IFundNetValService fundNetValService;
+  @Autowired private IFundNetValService fundNetValService;
 
-    @GetMapping("/fund")
-    public Result PaginationSort(@RequestBody PagingParameters pagingParameters){
-        List<FinalData> finalDataList = fundNetValService.PaginationSort(pagingParameters);
-        Integer status = finalDataList != null ? Status.OPERATION_SUCCESS : Status.OPERATION_FAILURE;
-        String msg = finalDataList != null ? "查询成功" : "查询失败, 请重试";
-        return new Result(status, finalDataList, msg);
-    }
+  @GetMapping("/fund")
+  public Result PaginationSort(@RequestBody PagingParameters pagingParameters) {
+    List<FinalData> finalDataList =
+        fundNetValService.PaginationSort(pagingParameters);
+    Integer status = finalDataList != null ? Status.OPERATION_SUCCESS
+                                           : Status.OPERATION_FAILURE;
+    String msg = finalDataList != null ? "查询成功" : "查询失败, 请重试";
+    return new Result(status, finalDataList, msg);
+  }
 }

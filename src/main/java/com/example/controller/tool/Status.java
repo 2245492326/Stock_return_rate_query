@@ -7,7 +7,7 @@ package com.example.controller.tool;
  * 删除-->delete
  */
 public class Status {
-    //操作成功
-    public static final Integer OPERATION_FAILURE = 404;
-    public static final Integer OPERATION_SUCCESS = 200;
+  // 操作成功
+  public static final Integer OPERATION_FAILURE = 404;
+  public static final Integer OPERATION_SUCCESS = 200;
 }

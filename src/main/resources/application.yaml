@@ -11,9 +11,9 @@ spring:
 
 # 配置mybatis-plus
 mybatis-plus:
-#  configuration:
-#    # 配置MyBatis自带日志
-#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #  configuration:
+  #    # 配置MyBatis自带日志
+  #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   #mybatis-plus的全局配置
   global-config:
     banner: off

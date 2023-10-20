@@ -15,4 +15,4 @@
 ![响应时间](https://img1.imgtp.com/2023/09/26/N6lQSqe4.png)
 
 视图
-![视图](https://img1.imgtp.com/2023/09/26/5bVmtNYx.png)
+![img](https://i.postimg.cc/BnPwDbNq/image.png)
